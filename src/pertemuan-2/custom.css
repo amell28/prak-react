@@ -321,7 +321,7 @@ small::after {
     }
 }
 
-/* Animasi tambahan */
+
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
@@ -332,7 +332,6 @@ small::after {
     animation: bounce 1s ease infinite;
 }
 
-/* Background pattern dog house */
 .dog-house {
     position: fixed;
     bottom: 20px;
