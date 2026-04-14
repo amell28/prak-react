@@ -14,8 +14,9 @@ export default function Dashboard() {
                     </div>
                     <div id="orders-info" className="flex flex-col">
                         <span id="orders-count" className="text-2xl font-bold">75</span>
-                        <span id="orders-text" className="text-gray-400">Total Orders</span>
-                    </div>
+                        <span id="orders-trend" className="text-xs text-hijau font-bold">+4% (30 days)</span> {/* Penambahan baru */}
+                        <span id="orders-text" className="text-gray-400 text-sm">Total Orders</span>
+                    </div>  
                 </div>
 
                 {/* Delivered */}

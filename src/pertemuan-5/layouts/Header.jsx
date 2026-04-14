@@ -9,8 +9,7 @@ export default function Header() {
             <div id="search-bar" className="relative w-full max-w-lg">
                 <input
                     id="search-input"
-                    className="border border-gray-100 p-2 pr-10 bg-white w-full max-w-lg rounded-md outline-none"
-                    type="text"
+                    className="border border-gray-100 p-2 pr-10 bg-white w-full max-w-xs focus:max-w-lg transition-all duration-300 rounded-md outline-none focus:ring-2 focus:ring-green-100"                    type="text"
                     placeholder="Search Here..."
                 />
                 <FaSearch id="search-icon" className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-300" />
@@ -33,7 +32,7 @@ export default function Header() {
                 {/* Profile Section */}
                 <div id="profile-container" className="flex items-center space-x-4 border-l pl-4 border-gray-300">
                     <span id="profile-text">
-                        Hello, <b>Fikri Muhaffizh</b>
+                        Hello, <b>Amel</b>
                     </span>
                     <img
                         id="profile-avatar"
