@@ -60,6 +60,7 @@ export default function Sidebar() {
           </li>
           <li>
             <NavLink to="/error-403" className={menuClass}>
+              
               <HiOutlineLockClosed className="mr-4 text-xl" /> Error 403
             </NavLink>
           </li>

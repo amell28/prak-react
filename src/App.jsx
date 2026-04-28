@@ -1,23 +1,29 @@
+import React, { useState, lazy, Suspense } from 'react' // Tambahkan lazy & Suspense
 import "./assets/tailwind.css"
-import { Route, Routes } from "react-router-dom";
-import Sidebar from "./layouts/Sidebar";
-import Header from "./layouts/Header";
-import Dashboard from "./pages/Dashboard";
-import Orders from "./pages/Orders";
-import Customers from "./pages/Customers";
-import ErrorPage from "./pages/ErrorPage"; // Pastikan importnya benar
+import { Route, Routes } from 'react-router-dom'
+import Loading from './components/Loading'
+
+// Ganti import statis menjadi lazy loading
+const Dashboard = React.lazy(() => import('./pages/Dashboard'))
+const Orders = React.lazy(() => import('./pages/Orders'))
+const Customers = React.lazy(() => import('./pages/Customers'))
+const ErrorPage = React.lazy(() => import('./pages/ErrorPage'))
+const Login = React.lazy(() => import('./pages/auth/Login'))
+const Register = React.lazy(() => import('./pages/auth/Register'))
+const Forgot = React.lazy(() => import('./pages/auth/Forgot'))
+
+// MainLayout & AuthLayout biasanya dibiarkan statis karena sering langsung dipakai
+const MainLayout = React.lazy(() => import('./layouts/MainLayout'))
+const AuthLayout = React.lazy(() => import('./layouts/AuthLayout'))
 
 function App() {
   return (
-    <div id="app-container" className="bg-gray-100 min-h-screen flex">
-      <div id="layout-wrapper" className="flex flex-row flex-1">
-        <Sidebar />
-        <div id="main-content" className="flex-1 p-4">
-          <Header />
+    	<Suspense fallback={<Loading />}>
           <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/orders" element={<Orders />} />
-            <Route path="/customers" element={<Customers />} />
+            <Route element={<MainLayout/>}>
+               <Route path="/" element={<Dashboard />} />
+               <Route path="/orders" element={<Orders />} />
+               <Route path="/customers" element={<Customers />} />
 
             {/* Route Error Spesifik Sesuai Tugas */}
             <Route 
@@ -38,10 +44,15 @@ function App() {
               path="*" 
               element={<ErrorPage errorCode="404" title="Page Not Found" description="Halaman yang Anda cari tidak ditemukan atau telah dipindahkan." />} 
             />
+              </Route>
+
+                <Route element={<AuthLayout/>}>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register/>} />
+            <Route path="/forgot" element={<Forgot/>} />
+        </Route>
           </Routes>
-        </div>
-      </div>
-    </div>
+          </Suspense>
   );
 }
 
