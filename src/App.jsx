@@ -7,10 +7,12 @@ import Loading from './components/Loading'
 const Dashboard = React.lazy(() => import('./pages/Dashboard'))
 const Orders = React.lazy(() => import('./pages/Orders'))
 const Customers = React.lazy(() => import('./pages/Customers'))
+const Product = React.lazy(() => import('./pages/Product'))
 const ErrorPage = React.lazy(() => import('./pages/ErrorPage'))
 const Login = React.lazy(() => import('./pages/auth/Login'))
 const Register = React.lazy(() => import('./pages/auth/Register'))
 const Forgot = React.lazy(() => import('./pages/auth/Forgot'))
+const ProductDetail = React.lazy(() => import("./pages/ProductDetail"))
 
 // MainLayout & AuthLayout biasanya dibiarkan statis karena sering langsung dipakai
 const MainLayout = React.lazy(() => import('./layouts/MainLayout'))
@@ -23,6 +25,8 @@ function App() {
             <Route element={<MainLayout/>}>
                <Route path="/" element={<Dashboard />} />
                <Route path="/orders" element={<Orders />} />
+               <Route path="/products" element={<Product />} />
+               <Route path="/products/:id" element={<ProductDetail />} />
                <Route path="/customers" element={<Customers />} />
 
             {/* Route Error Spesifik Sesuai Tugas */}
@@ -45,7 +49,6 @@ function App() {
               element={<ErrorPage errorCode="404" title="Page Not Found" description="Halaman yang Anda cari tidak ditemukan atau telah dipindahkan." />} 
             />
               </Route>
-
                 <Route element={<AuthLayout/>}>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register/>} />

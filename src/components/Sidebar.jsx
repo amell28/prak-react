@@ -4,6 +4,7 @@ import { CiShoppingCart } from "react-icons/ci";
 import { AiOutlineCustomerService } from "react-icons/ai";
 import { HiOutlineExclamation, HiOutlineLockClosed, HiOutlineUserRemove } from "react-icons/hi"; // Ikon tambahan
 import { NavLink } from "react-router-dom";
+import { BsFillBoxSeamFill } from "react-icons/bs";
 
 export default function Sidebar() {
   const menuClass = ({ isActive }) =>
@@ -40,6 +41,12 @@ export default function Sidebar() {
           <li>
             <NavLink to="/customers" className={menuClass}>
               <AiOutlineCustomerService className="mr-4 text-xl" /> Customers
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/products" className={menuClass}>
+              <BsFillBoxSeamFill className="mr-4 text-xl" /> Products
             </NavLink>
           </li>
 
