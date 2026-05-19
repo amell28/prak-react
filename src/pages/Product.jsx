@@ -5,8 +5,8 @@ import dataProducts from "../data/Product.json";
 
 export default function Product() {
   return (
-    <div id="dashboard-container">
-      <PageHeader title="Products" />
+    <div id="dashboard-container" >
+      <PageHeader title="Products" breadcrumb={["Dashboard","Product"]}/>
 
       <div className="min-h-screen bg-gray-100 p-6">
         <h1 className="text-2xl font-bold mb-4 text-center">Daftar Produk</h1>
