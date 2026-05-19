@@ -3,6 +3,8 @@ import PageHeader from "../components/PageHeader";
 import Button from "../components/Button";
 import Badge from "../components/Badge";
 import Avatar from "../components/Avatar";
+import Container from "../components/Container";
+import Footer from "../components/Footer";
 
 export default function Components() {
   return (
@@ -19,6 +21,15 @@ export default function Components() {
         <Avatar name="Budi" />
         <Avatar name="Siti" />
       </div>
+
+      <Container className="bg-gray-100">
+        <h1 className="text-3xl font-bold mb-4">Daftar Produk</h1>
+
+        <p className="text-gray-600">Berikut adalah daftar produk terbaru.</p>
+      </Container>
+
+      <Footer/>
+
     </div>
   );
 }
