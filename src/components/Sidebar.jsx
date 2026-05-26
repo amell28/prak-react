@@ -1,7 +1,7 @@
 import { MdDashboard } from "react-icons/md";
 import { FaPlus } from "react-icons/fa";
 import { CiShoppingCart } from "react-icons/ci";
-import { AiOutlineCustomerService } from "react-icons/ai";
+import { AiOutlineCustomerService, AiOutlineNodeExpand } from "react-icons/ai";
 import { HiOutlineExclamation, HiOutlineLockClosed, HiOutlineUserRemove } from "react-icons/hi"; // Ikon tambahan
 import { NavLink } from "react-router-dom";
 import { BsFillBoxSeamFill } from "react-icons/bs";
@@ -54,6 +54,12 @@ export default function Sidebar() {
           <li>
             <NavLink to="/components" className={menuClass}>
               <CgComponents className="mr-4 text-xl" /> Components
+            </NavLink>
+          </li>
+
+           <li>
+            <NavLink to="/fitur-xyz" className={menuClass}>
+              <AiOutlineNodeExpand className="mr-4 text-xl" /> Fitur Xyz
             </NavLink>
           </li>
 

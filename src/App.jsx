@@ -14,6 +14,7 @@ const Register = React.lazy(() => import('./pages/auth/Register'))
 const Forgot = React.lazy(() => import('./pages/auth/Forgot'))
 const ProductDetail = React.lazy(() => import("./pages/ProductDetail"))
 const Components = React.lazy(() => import("./pages/Components"))
+const FiturXyz = React.lazy(() => import("./pages/FiturXyz"))
 
 // MainLayout & AuthLayout biasanya dibiarkan statis karena sering langsung dipakai
 const MainLayout = React.lazy(() => import('./layouts/MainLayout'))
@@ -29,7 +30,8 @@ function App() {
                <Route path="/products" element={<Product />} />
                <Route path="/products/:id" element={<ProductDetail />} />
                <Route path="/customers" element={<Customers />} />
-                 <Route path="/components" element={<Components />} />
+               <Route path="/components" element={<Components />} />
+               <Route path="/fitur-xyz" element={<FiturXyz />} />
 
             {/* Route Error Spesifik Sesuai Tugas */}
             <Route 
