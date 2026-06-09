@@ -5,7 +5,7 @@ import { AiOutlineCustomerService, AiOutlineNodeExpand } from "react-icons/ai";
 import { HiOutlineExclamation, HiOutlineLockClosed, HiOutlineUserRemove } from "react-icons/hi"; // Ikon tambahan
 import { NavLink } from "react-router-dom";
 import { BsFillBoxSeamFill } from "react-icons/bs";
-import { CgComponents } from "react-icons/cg";
+import { CgComponents, CgNotes } from "react-icons/cg";
 
 export default function Sidebar() {
   const menuClass = ({ isActive }) =>
@@ -62,6 +62,13 @@ export default function Sidebar() {
               <AiOutlineNodeExpand className="mr-4 text-xl" /> Fitur Xyz
             </NavLink>
           </li>
+
+          <li>
+            <NavLink to="/Notes" className={menuClass}>
+              <CgNotes className="mr-4 text-xl" /> Notes
+            </NavLink>
+          </li>
+
 
           {/* HR Divider (Opsional biar rapi) */}
           <hr className="my-4 border-gray-100" />
