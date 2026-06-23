@@ -1,13 +1,13 @@
 import { MdDashboard } from "react-icons/md";
 import { FaPlus } from "react-icons/fa";
 import { CiShoppingCart } from "react-icons/ci";
-import { AiOutlineCustomerService, AiOutlineNodeExpand } from "react-icons/ai";
+import { AiOutlineCustomerService } from "react-icons/ai";
 import { HiOutlineExclamation, HiOutlineLockClosed, HiOutlineUserRemove } from "react-icons/hi"; // Ikon tambahan
 import { NavLink } from "react-router-dom";
 import { BsFillBoxSeamFill } from "react-icons/bs";
-import { CgComponents, CgNotes } from "react-icons/cg";
 
-export default function Sidebar() {
+export default function Sidebar({ profile }) {
+  const isAdmin = profile?.role === "admin"
   const menuClass = ({ isActive }) =>
     `flex cursor-pointer items-center rounded-xl p-4 space-x-2 transition-all
         ${
@@ -36,59 +36,20 @@ export default function Sidebar() {
           </li>
           <li>
             <NavLink to="/orders" className={menuClass}>
-              <CiShoppingCart className="mr-4 text-xl" /> Orders
+              <CiShoppingCart className="mr-4 text-xl" /> {isAdmin ? "Orders" : "My Orders"}
             </NavLink>
           </li>
-          <li>
-            <NavLink to="/customers" className={menuClass}>
-              <AiOutlineCustomerService className="mr-4 text-xl" /> Customers
-            </NavLink>
-          </li>
+          {isAdmin ? (
+            <li>
+              <NavLink to="/customers" className={menuClass}>
+                <AiOutlineCustomerService className="mr-4 text-xl" /> Customers
+              </NavLink>
+            </li>
+          ) : null}
 
           <li>
             <NavLink to="/products" className={menuClass}>
-              <BsFillBoxSeamFill className="mr-4 text-xl" /> Products
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink to="/components" className={menuClass}>
-              <CgComponents className="mr-4 text-xl" /> Components
-            </NavLink>
-          </li>
-
-           <li>
-            <NavLink to="/fitur-xyz" className={menuClass}>
-              <AiOutlineNodeExpand className="mr-4 text-xl" /> Fitur Xyz
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink to="/Notes" className={menuClass}>
-              <CgNotes className="mr-4 text-xl" /> Notes
-            </NavLink>
-          </li>
-
-
-          {/* HR Divider (Opsional biar rapi) */}
-          <hr className="my-4 border-gray-100" />
-          <p className="text-xs font-bold text-gray-400 px-4 mb-2 uppercase tracking-widest">Error Pages</p>
-
-          {/* Link Error Sesuai Perintah */}
-          <li>
-            <NavLink to="/error-400" className={menuClass}>
-              <HiOutlineExclamation className="mr-4 text-xl" /> Error 400
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/error-401" className={menuClass}>
-              <HiOutlineUserRemove className="mr-4 text-xl" /> Error 401
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/error-403" className={menuClass}>
-              
-              <HiOutlineLockClosed className="mr-4 text-xl" /> Error 403
+              <BsFillBoxSeamFill className="mr-4 text-xl" /> {isAdmin ? "Products" : "Order Product"}
             </NavLink>
           </li>
         </ul>
